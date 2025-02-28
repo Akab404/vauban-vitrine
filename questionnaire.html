@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-77135EZJS3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-77135EZJS3');
+        </script>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupe Vauban - Matchez avec la technologie qui vous correspond !</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+   
+    <link rel="stylesheet" href="style.css?v=2">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+<section>
+    <div class="banner d-flex align-items-center justify-content-center py-2">
+        <a href="https://www.vauban-groupe.fr/" target="_blank">
+            <img src="img/logo_vauban.png" alt="">
+        </a>
+    </div>
+</section>
+<div class="container">
+    
+    <div class="row justify-content-center align-items-start mb-5 mb-lg-0 mt-0 mt-lg-5">
+        <div class="illustration col-12 col-lg-3 p-0" id="illustration">
+            <img src="img/type.jpg" alt="">
+        </div>
+        <form id="form" class="form col-12 col-lg-6">
+            <div class="heading-form mb-4 mb-lg-0 ">
+                <div class="titre-form text-center">
+                    
+                </div>
+                <div class="progressbar">
+                    <div class="progres" id="progres"></div>
+                    <div class="progress-step progress-step-active"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                </div>
+            </div>
+            <!-- Question 1 -->
+            <div class="question form-step form-step-active">
+                <div class="group-input form-check">
+                    <h5 class="titre-question">Quel type de trajet réalisez-vous fréquemment&nbsp?</h5>
+                    <input class="form-check-input" type="radio" name="trajet" value="Trajet Urbain" onchange="calculer()" id="urbain"><label for="urbain"> Trajet Urbain</label>
+                    <input class="form-check-input" type="radio" name="trajet" value="Trajet Rural" onchange="calculer()" id="rural"> <label for="rural">Trajet Rural</label>
+                    <input class="form-check-input" type="radio" name="trajet" value="Trajets mixtes" onchange="calculer()" id="mixtes"> <label for="mixtes">Trajets mixtes</label>
+                    <input class="form-check-input" type="radio" name="trajet" value="Surtout autoroute" onchange="calculer()" id="autoroute"> <label for="autoroute">Surtout autoroute</label>
+                </div>
+            </div>
+        
+            <!-- Question 2 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">Combien de kilomètres parcourez-vous quotidiennement&nbsp?</h5>
+                <input class="form-check-input" type="radio" name="kilomètres" value="< 20 km" onchange="calculer()" id="20"> <label for="20"> 20 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres" value="Entre 20 et 50 km" onchange="calculer()" id="21"> <label for="21">Entre 20 et 50 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres" value="Entre 50 et 100 km" onchange="calculer()" id="51"> <label for="51">Entre 50 et 100 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres" value="> 100 km" onchange="calculer()" id="101"> <label for="101">> 100 km</label><br>
+            </div>
+        
+            <!-- Question 3 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">Combien de kilomètres parcourrez-vous annuellement&nbsp?</h5>
+                <input class="form-check-input" type="radio" name="kilomètres_annuels" value="< 10 000 km" onchange="calculer()" id="10"> <label for="10"> 10 000 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres_annuels" value="10 000 km - 15 000 km" onchange="calculer()" id="11"> <label for="11">10 000 km - 15 000 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres_annuels" value="Entre 15 000 km et 20 000 km" onchange="calculer()" id="15"> <label for="15">Entre 15 000 km et 20 000 km</label><br>
+                <input class="form-check-input" type="radio" name="kilomètres_annuels" value="> 20 000 km" onchange="calculer()" id="221"> <label for="221">> 20 000 km</label><br>
+            </div>
+        
+            <!-- Question 4 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">À quelle fréquence utilisez-vous votre véhicule pour des longs trajets (> 350 km) ?</h5>
+                <input class="form-check-input" type="radio" name="longs_trajets" value="Jamais" onchange="calculer()" id="never"> <label for="never">Jamais</label><br>
+                <input class="form-check-input" type="radio" name="longs_trajets" value="1 à 2 fois par an" onchange="calculer()" id="year"> <label for="year">1 à 2 fois par an</label><br>
+                <input class="form-check-input" type="radio" name="longs_trajets" value="1 à 2 fois par mois" onchange="calculer()" id="month"> <label for="month">1 à 2 fois par mois</label><br>
+                <input class="form-check-input" type="radio" name="longs_trajets" value="Minimum 1 fois par semaine" onchange="calculer()" id="week"> <label for="week">Minimum 1 fois par semaine</label><br>
+            </div>
+        
+            <!-- Question 5 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">Où pouvez-vous recharger une voiture électrique ou hybride rechargeable&nbsp?</h5>
+                <input class="form-check-input" type="radio" name="recharge" value="Uniquement à mon domicile" onchange="calculer()" id="home"><label for="home"> Uniquement à mon domicile</label><br>
+                <input class="form-check-input" type="radio" name="recharge" value="Uniquement au travail / sur le temps de travail" onchange="calculer()" id="work"> <label for="work">Uniquement au travail / sur le temps de travail</label><br>
+                <input class="form-check-input" type="radio" name="recharge" value="À mon domicile et au travail" onchange="calculer()" id="homoffice"> <label for="homoffice">À mon domicile et au travail</label><br>
+                <input class="form-check-input" type="radio" name="recharge" value="Ni à mon domicile ni au travail" onchange="calculer()" id="neither"> <label for="neither">Ni à mon domicile ni au travail</label><br>
+            </div>
+        
+            <!-- Question 6 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">Dans votre budget voiture, qu'est-ce qui est le plus important pour vous&nbsp?</h5>
+                <input class="form-check-input" type="radio" name="budget" value="Coût d’acquisition du véhicule maîtrisé" onchange="calculer()" id="vehicule"> <label for="vehicule">Coût d’acquisition du véhicule maîtrisé</label><br>
+                <input class="form-check-input" type="radio" name="budget" value="Le coût d'entretien faible" onchange="calculer()" id="entretien"> <label for="entretien">Le coût d'entretien faible</label><br>
+                <input class="form-check-input" type="radio" name="budget" value="Le coût d'utilisation faible" onchange="calculer()" id="utilisation"> <label for="utilisation">Le coût d'utilisation faible</label><br>
+            </div>
+        
+            <!-- Question 7 -->
+            <div class="question form-step d-none form-check">
+                <h5 class="titre-question">Votre véhicule est-il immatriculé à votre nom propre ou au nom de votre société&nbsp?</h5>
+                <input class="form-check-input" type="radio" name="immatriculation" value="À mon nom" onchange="calculer()" id="me"> <label for="me">À mon nom</label><br>
+                <input class="form-check-input" type="radio" name="immatriculation" value="Au nom de ma société" onchange="calculer()" id="society"><label for="society"> Au nom de ma société</label><br>
+            </div>
+        
+            <div class="results form-step d-none" id="resultats">
+                <h3 class="text-center titre-question">Voici votre motorisation idéale :</h3>
+
+                <div class="card-motorisation">
+                    <div class="row gy-2">
+                        <div class="svg-engine col-12 col-md-3 d-flex justify-content-center">
+                            <svg width="92" height="94" viewBox="0 0 92 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M88.1532 68.9608H86.6024V67.8592C86.6024 64.41 83.8016 61.6092 80.3524 61.6092H75.0516L86.8756 36.3592C86.8756 36.3592 86.899 36.2107 86.9264 36.1326C88.0006 34.2068 88.653 32.031 88.653 29.6834C88.653 22.3084 82.653 16.3084 75.278 16.3084C71.6296 16.3084 68.3288 17.785 65.9264 20.16V12.4608C65.9264 9.43741 63.7506 6.91001 60.903 6.33581V4.56241C60.903 2.48821 59.2272 0.812408 57.153 0.812408H38.301C36.2268 0.812408 34.551 2.48821 34.551 4.56241V6.33581C31.676 6.91003 29.5276 9.43741 29.5276 12.4608V19.9842C28.4026 19.5584 27.176 19.285 25.9026 19.285C20.1526 19.285 15.4766 23.9608 15.4766 29.711C15.4766 30.5625 15.6016 31.3594 15.8008 32.1602V32.2344L17.25 40.461H14.625C11.1758 40.461 8.375 43.2618 8.375 46.711V52.0118H3.75C1.6758 52.0118 0 53.6876 0 55.7618V66.2618C0 68.336 1.6758 70.0118 3.75 70.0118H8.375V75.3126C8.375 78.7618 11.1758 81.5626 14.625 81.5626H25.898C29.8472 88.4884 37.296 93.1876 45.847 93.1876C52.4212 93.1876 58.347 90.3868 62.546 85.9376H80.398C83.8472 85.9376 86.648 83.1368 86.648 79.6876V78.586H88.1988C90.273 78.586 91.9488 76.9102 91.9488 74.836V72.7618C91.9488 70.6876 90.273 69.0118 88.1988 69.0118L88.1532 68.9608ZM63.0052 55.0858C63.0052 55.0858 62.9544 54.9842 62.9036 54.9373L48.8296 39.5113L62.1306 27.1363C61.9822 27.9605 61.8806 28.7847 61.8806 29.6597C61.8806 35.8355 66.1072 41.0117 71.8298 42.5347V62.5577L68.7048 69.2335C68.4783 63.8077 66.3802 58.8818 63.0052 55.0858ZM75.2552 43.0348C77.6302 43.0348 79.8294 42.359 81.7786 41.2614L74.3294 57.2104V42.9374C74.6536 42.9374 74.9544 43.0389 75.2786 43.0389L75.2552 43.0348ZM75.2552 18.7848C81.2552 18.7848 86.1302 23.6598 86.1302 29.6598C86.1302 35.6598 81.2552 40.5348 75.2552 40.5348C69.2552 40.5348 64.3802 35.6598 64.3802 29.6598C64.3802 23.6598 69.2552 18.7848 75.2552 18.7848ZM37.0282 4.51177C37.0282 3.81255 37.579 3.26177 38.2782 3.26177H57.1302C57.8294 3.26177 58.3802 3.81255 58.3802 4.51177V6.16017H37.0282V4.51177ZM32.0048 12.4102C32.0048 10.336 33.6806 8.66017 35.7548 8.66017H59.6528C61.727 8.66017 63.4028 10.336 63.4028 12.4102V22.5352L47.1528 37.6602L34.3798 23.6832H34.3564C33.7079 22.7574 32.9072 21.9566 32.0048 21.3082L32.0048 12.4102ZM25.8798 21.7344C30.2548 21.7344 33.8056 25.2852 33.8056 29.6602C33.8056 34.0352 30.2548 37.586 25.8798 37.586C21.5048 37.586 17.954 34.0352 17.954 29.6602C17.954 25.2852 21.5048 21.7344 25.8798 21.7344ZM19.2782 37.6324C21.079 39.109 23.3524 40.0582 25.8798 40.0582C31.6298 40.0582 36.3058 35.3824 36.3058 29.6322V29.4056L46.2042 40.2576L53.9542 48.7342C51.4308 47.785 48.7042 47.2342 45.8526 47.2342C40.6026 47.2342 35.7506 49.035 31.8756 52.0076H21.8526L21.4268 49.5818H32.2508C32.95 49.5818 33.5008 49.031 33.5008 48.3318C33.5008 47.6326 32.95 47.0818 32.2508 47.0818H21.0008L20.2508 42.8826H32.0238C32.723 42.8826 33.2738 42.3318 33.2738 41.6326C33.2738 40.9334 32.723 40.3826 32.0238 40.3826H19.7968L19.2968 37.6326L19.2782 37.6324ZM21.0516 62.0584H16.575C15.8992 62.0584 15.3484 61.5076 15.3484 60.8318C15.3484 60.156 15.8992 59.6052 16.575 59.6052H20.6258L21.0516 62.031L21.0516 62.0584ZM22.825 72.1094H16.575C15.8992 72.1094 15.3484 71.5586 15.3484 70.8828C15.3484 70.2069 15.8992 69.6562 16.575 69.6562H22.3992L22.825 72.082L22.825 72.1094ZM23.825 63.3828V63.3085C23.825 63.1328 23.7742 62.957 23.7 62.7851L23.1492 59.6367H25.4226C24.7742 60.8633 24.2468 62.1601 23.821 63.5117V63.3867L23.825 63.3828ZM26.95 57.1328H22.7234L22.2468 54.5078H29.071C28.2976 55.332 27.571 56.207 26.946 57.1328H26.95ZM19.2742 52.0078H16.575C15.8992 52.0078 15.3484 51.457 15.3484 50.7812C15.3484 50.1054 15.8992 49.582 16.575 49.582H18.8484L19.2742 52.0078ZM3.7002 67.4338C3.00098 67.4338 2.4502 66.883 2.4502 66.1838V55.6838C2.4502 54.9845 3.00098 54.4338 3.7002 54.4338H8.3252V67.4338H3.7002ZM14.5752 78.9848C12.501 78.9848 10.8252 77.309 10.8252 75.2348V46.6328C10.8252 44.5586 12.501 42.8828 14.5752 42.8828H17.6494L18.3994 47.082H16.5752C14.5244 47.082 12.8486 48.7578 12.8486 50.7812C12.8486 52.8046 14.5244 54.5078 16.5752 54.5078H19.7002L20.1768 57.1328H16.5752C14.5244 57.1328 12.8486 58.8086 12.8486 60.8594C12.8486 62.9102 14.5244 64.586 16.5752 64.586H21.501L21.9775 67.211H16.6025C14.5517 67.211 12.8759 68.8868 12.8759 70.9376C12.8759 72.9884 14.5517 74.6642 16.6025 74.6642H23.3017C23.6025 76.1876 24.0517 77.6408 24.6259 79.0392H14.6029L14.5752 78.9848ZM45.7742 90.6098C34.5012 90.6098 25.3252 81.434 25.3252 70.1608C25.3252 58.8878 34.501 49.7118 45.7742 49.7118C57.0472 49.7118 66.2232 58.8876 66.2232 70.1608C66.2232 81.4338 57.0474 90.6098 45.7742 90.6098ZM84.0472 79.6098C84.0472 81.684 82.3714 83.3598 80.2972 83.3598H64.4962C65.2696 82.2582 65.9454 81.1098 66.5196 79.8832H78.7926C79.4918 79.8832 80.0426 79.3324 80.0426 78.6332C80.0426 77.934 79.4918 77.3832 78.7926 77.3832H67.5936L68.7186 74.9574H78.7926C79.4918 74.9574 80.0426 74.4066 80.0426 73.7074C80.0426 73.0081 79.4918 72.4574 78.7926 72.4574H69.8942L71.0192 70.0316H78.7692C79.4684 70.0316 80.0192 69.4808 80.0192 68.7816C80.0192 68.0824 79.4684 67.5316 78.7692 67.5316H72.1676L73.7926 64.055H80.2692C82.3434 64.055 84.0192 65.7308 84.0192 67.805V79.606L84.0472 79.6098ZM89.348 74.7582C89.348 75.4574 88.7972 76.0082 88.098 76.0082H86.5472V71.434H88.098C88.7972 71.434 89.348 71.9847 89.348 72.684V74.7582Z" fill="#2F4A6D"/>
+                                <path d="M75.2847 35.0401C77.9085 35.0401 80.0559 32.903 80.0559 30.2918C80.0559 27.6806 77.9085 25.5435 75.2847 25.5435C72.6609 25.5435 70.5135 27.6806 70.5135 30.2918C70.5135 32.903 72.6609 35.0401 75.2847 35.0401ZM75.2847 28.0264C76.5341 28.0264 77.5571 29.0444 77.5571 30.2878C77.5571 31.5313 76.5341 32.5493 75.2847 32.5493C74.0353 32.5493 73.0124 31.5313 73.0124 30.2878C73.0124 29.0444 74.0353 28.0264 75.2847 28.0264Z" fill="#2F4A6D"/>
+                                <path d="M25.9098 35.634C28.885 35.634 31.2823 33.2482 31.2823 30.2872C31.2823 27.3263 28.885 24.9405 25.9098 24.9405C22.9346 24.9405 20.5373 27.3263 20.5373 30.2872C20.5373 33.2482 22.9346 35.634 25.9098 35.634ZM25.9098 27.4273C27.4833 27.4273 28.7835 28.7213 28.7835 30.2872C28.7835 31.8532 27.4833 33.1471 25.9098 33.1471C24.3363 33.1471 23.0361 31.8532 23.0361 30.2872C23.0361 28.7213 24.3363 27.4273 25.9098 27.4273Z" fill="#2F4A6D"/>
+                                <path d="M45.8494 65.2785C42.8742 65.2785 40.4769 67.6643 40.4769 70.6253C40.4769 73.5863 42.8742 75.9721 45.8494 75.9721C48.8246 75.9721 51.2219 73.5863 51.2219 70.6253C51.2219 67.6643 48.8246 65.2785 45.8494 65.2785ZM45.8494 73.4852C44.276 73.4852 42.9758 72.1912 42.9758 70.6253C42.9758 69.0594 44.276 67.7654 45.8494 67.7654C47.4229 67.7654 48.7231 69.0594 48.7231 70.6253C48.7231 72.1912 47.4229 73.4852 45.8494 73.4852Z" fill="#2F4A6D"/>
+                                <path d="M45.8495 55.6305C37.5525 55.6305 30.7825 62.3683 30.7825 70.6253C30.7825 78.8823 37.5293 85.6202 45.8495 85.6202C54.1696 85.6202 60.9164 78.8823 60.9164 70.6253C60.9164 62.3683 54.1462 55.6305 45.8495 55.6305ZM45.8495 83.1333C38.9269 83.1333 33.2813 77.5146 33.2813 70.6253C33.2813 63.7361 38.9271 58.1173 45.8495 58.1173C52.7718 58.1173 58.4176 63.7361 58.4176 70.6253C58.4176 77.5146 52.7718 83.1333 45.8495 83.1333Z" fill="#2F4A6D"/>
+                                <path d="M39.9032 15.9141H55.5949C56.2938 15.9141 56.8443 15.3662 56.8443 14.6707C56.8443 13.9751 56.2938 13.4272 55.5949 13.4272H39.9032C39.2043 13.4272 38.6538 13.9751 38.6538 14.6707C38.6538 15.3662 39.2043 15.9141 39.9032 15.9141Z" fill="#2F4A6D"/>
+                                <path d="M39.9032 20.8142H55.5949C56.2938 20.8142 56.8443 20.2663 56.8443 19.5708C56.8443 18.8752 56.2938 18.3273 55.5949 18.3273H39.9032C39.2043 18.3273 38.6538 18.8752 38.6538 19.5708C38.6538 20.2663 39.2043 20.8142 39.9032 20.8142Z" fill="#2F4A6D"/>
+                                <path d="M39.9032 25.7144H55.5949C56.2938 25.7144 56.8443 25.1665 56.8443 24.4709C56.8443 23.7754 56.2938 23.2275 55.5949 23.2275H39.9032C39.2043 23.2275 38.6538 23.7754 38.6538 24.4709C38.6538 25.1665 39.2043 25.7144 39.9032 25.7144Z" fill="#2F4A6D"/>
+                            </svg>
+                        </div>
+                        <div class="content-engine col-12 col-md-9" id="top-motor">
+                            <h3>Électrique</h3>
+                            <p>Proin vitae orci aliquet, faucibus dolor consectetur, mollis turpis. Pellentesque eu ante bibendum, lacinia nulla non, feugiat augue. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <a href="contact.html" id="reservation-link" class="btn btn-primary w-100 d-flex justify-content-between align-items-center cta-change-page">
+                        Réserver mon essai 
+                        <span class="material-symbols-outlined">
+                            arrow_right_alt
+                            </span>
+                    </a>
+                </div>
+                <div class="card-stat">
+                    <h5>Détails des résultats</h5>
+                    <div id="resultat-stats">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <a href="questionnaire.html" class="cta-reset btn btn-secondary w-100">
+                        <span class="material-symbols-outlined">
+                            rotate_left
+                            </span> Recommencer le test
+                    </a>
+                </div>
+            </div>
+
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="error-message d-none">
+                        <p>Veuillez sélectionner une réponse afin de pouvoir continuer.</p>
+                    </div>
+                </div>
+                <div class="col-3  mb-3 mb-lg-0">
+                    <a href="#" class="cta-back btn btn-secondary w-100 disabled d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined">
+                            keyboard_backspace
+                            </span>
+                    </a>
+                </div>
+                <div class="col-9  ">
+                    <a href="#" class="cta-next btn btn-primary w-100">
+                        Suivant
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<section>
+    <div class="footer pt-2">
+        <div class="container d-flex flex-column align-items-center gap-3 py-5">
+            <p> *Valable pour tout essai réservé entre le 11 et le 28 février 2025. Voir détail complet de l’offre en concession.</p>
+            <p>Conformément à la loi « Informatique et Libertés » n°78-17 du 6 janvier 1978  modifiée, vous bénéficiez d’un droit d’accès et de rectification aux données vous concernant et du droit de vous opposer,  pour motifs légitimes, au traitement de ces données ainsi que du droit  de définir des directives sur le sort, post mortem, de ces données. Vous pouvez exercer ces droits en vous adressant à Groupe Vauban - Service Marketing - 130 BIS AVENUE DU MARÉCHAL FOCH - Place Vauban, 78100 Saint-Germain-en-Laye. Crédit Photo : DR. Groupe  VAUBAN - 609 800 495 RCS VERSAILLES
+                <br>
+                <br>
+                Pour connaître notre politique de confidentialité : <a href="https://www.vauban-groupe.fr/politique-confidentialite/">https://www.vauban-groupe.fr/politique-confidentialite/</a></p>
+            <div class="footer-logo"><img src="img/logo_vauban.png" alt=""></div>
+        </div>
+        <div class="signature-estorik w-100">
+            <p>Design et développement</p>
+            <a href="https://www.estorik.com/" target="_blank">
+                
+                <svg width="109" id="e7dPaOJeSgu1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 109 24.918" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" project-id="ff1cac82a31341efab5be5e7038dedbb" export-id="76b6b550b63b4bcb970efacd1d441c62" cached="false">
+                    <style>
+                        <![CDATA[#e7dPaOJeSgu1{pointer-events: all}#e7dPaOJeSgu1:hover #e7dPaOJeSgu2_to {animation: e7dPaOJeSgu2_to__to 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu2_to__to { 0% {transform: translate(-198.87px,-546.87px)} 23.333333% {transform: translate(-198.87px,-546.87px);animation-timing-function: cubic-bezier(0.705,0.005,0.32,0.995)} 60% {transform: translate(-165.199028px,-546.87px)} 100% {transform: translate(-165.199028px,-546.87px)}} #e7dPaOJeSgu1:hover #e7dPaOJeSgu7_ts {animation: e7dPaOJeSgu7_ts__ts 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu7_ts__ts { 0% {transform: translate(19.622px,12.8305px) scale(1,1)} 13.333333% {transform: translate(19.622px,12.8305px) scale(1,1);animation-timing-function: cubic-bezier(0.545,0,0.16,0.995)} 60% {transform: translate(19.622px,12.8305px) scale(0,1)} 100% {transform: translate(19.622px,12.8305px) scale(0,1)}} #e7dPaOJeSgu1:hover #e7dPaOJeSgu14_to {animation: e7dPaOJeSgu14_to__to 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu14_to__to { 0% {transform: translate(-865.887px,-553.772px);animation-timing-function: cubic-bezier(0.9,0,0.11,1)} 60% {transform: translate(-937.918px,-553.772px)} 100% {transform: translate(-937.918px,-553.772px)}} #e7dPaOJeSgu1:hover #e7dPaOJeSgu16_tk {animation: e7dPaOJeSgu16_tk__tk 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu16_tk__tk { 0% {transform: translate(2.525802px,-6.892px) skewX(0deg) skewY(0deg)} 60% {transform: translate(2.525802px,-6.892px) skewX(0deg) skewY(0deg)} 100% {transform: translate(2.525802px,-6.892px) skewX(0deg) skewY(0deg)}} #e7dPaOJeSgu1:hover #e7dPaOJeSgu23_tr {animation: e7dPaOJeSgu23_tr__tr 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu23_tr__tr { 0% {transform: translate(135.33781px,207.03926px) rotate(720deg);animation-timing-function: cubic-bezier(0.415,0.08,0.115,0.955)} 100% {transform: translate(135.33781px,207.03926px) rotate(439.480519deg)}} #e7dPaOJeSgu1:hover #e7dPaOJeSgu24_tr {animation: e7dPaOJeSgu24_tr__tr 3000ms linear 1 normal forwards}@keyframes e7dPaOJeSgu24_tr__tr { 0% {transform: translate(11.12px,29.9px) rotate(-720deg);animation-timing-function: cubic-bezier(0.415,0.08,0.115,0.955)} 100% {transform: translate(11.12px,29.9px) rotate(-439.480519deg)}}]]>
+                    </style>
+                    <defs><linearGradient id="e7dPaOJeSgu17-fill" x1="0.5" y1="0" x2="0.5" y2="1" spreadMethod="pad" gradientUnits="objectBoundingBox" gradientTransform="translate(0 0)"><stop id="e7dPaOJeSgu17-fill-0" offset="0%" stop-color="rgba(255,255,255,0)"/><stop id="e7dPaOJeSgu17-fill-1" offset="100%" stop-color="#010022"/></linearGradient></defs><g id="e7dPaOJeSgu2_to" transform="translate(-198.87,-546.87)"><g transform="translate(0,0)"><g transform="translate(198.87 546.87)"><path d="M203.061,606.423c1.413143-.756361,2.997561-1.135243,4.6-1.1c1.616411-.033588,3.217266.321357,4.668,1.035c1.308291.65376,2.403335,1.666598,3.157,2.92.782665,1.344056,1.187281,2.874756,1.171,4.43.005856.546352-.03934,1.092056-.135,1.63h-12.663v.135c.04662,1.108172.479251,2.165165,1.223,2.988.767549.750055,1.814388,1.14398,2.886,1.086.852996.032423,1.696786-.185912,2.427-.628.478716-.308386.854434-.752702,1.079-1.276.162925-.353708.518599-.57855.908-.574h3.464c.135014-.000839.26304.05994.34774.165084s.116826.243177.08726.374916c-.22025.93693-.635246,1.817008-1.218,2.583-.730448.950486-1.687188,1.703021-2.783,2.189-1.250103.552236-2.605587.825244-3.972.8-1.742856.04477-3.471181-.327569-5.041-1.086-1.373214-.685108-2.508703-1.76729-3.259-3.106-.78159-1.441012-1.173508-3.061078-1.137-4.7-.040201-1.646335.338292-3.275919,1.1-4.736.705605-1.320225,1.77896-2.407474,3.09-3.13Zm7.5,3.327c-.770413-.596711-1.726239-.903284-2.7-.866-.957166-.029269-1.892301.290617-2.631.9-.720656.615189-1.176568,1.484395-1.273,2.427h7.909c-.099643-.957997-.56668-1.840098-1.303-2.461h-.002Z" transform="translate(-198.87-598.259)" fill="#ddfff7"/><g mask="url(#e7dPaOJeSgu6)"><mask id="e7dPaOJeSgu6" mask-type="luminance" x="-150%" y="-150%" height="400%" width="400%"><g id="e7dPaOJeSgu7_ts" transform="translate(19.622,12.8305) scale(1,1)"><rect width="69.54516" height="26.366546" rx="0" ry="0" transform="translate(0,-12.830871)" fill="#d2dbed" stroke-width="0"/></g></mask><g><path d="M366.957,618.561c.776338.502931,1.689818.752094,2.614.713.831845.040219,1.660483-.128947,2.41-.492.544219-.256947.889057-.807203.883-1.409.028625-.383947-.121568-.759614-.407-1.018-.338742-.255734-.734941-.424651-1.154-.492q-.747-.152-2.444-.356c-1.297974-.153862-2.581009-.414751-3.836-.78-.935578-.265471-1.780733-.781763-2.444-1.493-.638928-.756345-.966701-1.727153-.917-2.716-.016434-1.073997.310821-2.125135.934-3c.669014-.907919,1.581093-1.608185,2.631-2.02c1.239551-.494997,2.565491-.737406,3.9-.713c2.027096-.073822,4.030246.457776,5.754,1.527c1.412956.914579,2.292867,2.459178,2.359,4.141h-3.14c-.687859.010313-1.334137-.328447-1.717-.9-.190513-.286331-.437575-.530672-.726-.718-.716521-.444849-1.550373-.663678-2.393-.628-.762896-.034718-1.520613.141391-2.19.509-.507969.262925-.82807.786026-.831,1.358-.022185.361503.144756.708635.441.917.349906.225468.742904.375652,1.154.441q.712.136,2.376.306c1.887833.136055,3.729176.649523,5.415,1.51c1.294175.803109,2.023831,2.268227,1.885,3.785.017794,1.080992-.335114,2.135482-1,2.988-.728617.904021-1.691187,1.590929-2.783,1.986-1.319069.488156-2.717733.725563-4.124.7-2.089299.093904-4.155383-.470273-5.907-1.613-1.46947-.988936-2.367913-2.629247-2.41-4.4h3.8c.396774-.0002.750755.249269.884.623.186227.509105.530751.945104.983,1.244Z" transform="translate(-341.668-597.784)" fill="#ddfff7"/><path d="M503.74,575.478v-3.243c0-.441828.358172-.8.8-.8h2.088v-4.885h4.118c.368698.000551.667449.299302.668.668v4.22h3.972v3.05c-.000552.546371-.443628.989-.99.989h-2.982v7.639c-.043282.474888.096198.948404.39,1.324.362559.307091.83419.453958,1.307.407h1.868c.161782,0,.316938.064268.431335.178665s.178665.269553.178665.431335v3.43h-3.972c-2.756453,0-4.991-2.234547-4.991-4.991v-8.419l-2.886.001Z" transform="translate(-466.909-564.172)" fill="#ddfff7"/><path d="M611.657,618.933c-1.515792-2.939425-1.515792-6.430575,0-9.37.741579-1.342334,1.864123-2.434953,3.226-3.14c3.057006-1.470576,6.616994-1.470576,9.674,0c1.361347.705782,2.483701,1.798215,3.226,3.14c1.515968,2.945382,1.515968,6.441618,0,9.387-.745991,1.334692-1.867812,2.420695-3.226,3.123-3.057006,1.470576-6.616994,1.470576-9.674,0-1.36163-.70539-2.484084-1.797922-3.226-3.14Zm12.408-4.684c.06001-1.312517-.355808-2.602581-1.171-3.633-.810101-.886473-1.955626-1.39144-3.1565-1.39144s-2.346399.504967-3.1565,1.39144c-1.560591,2.170244-1.560591,5.094756,0,7.265.810101.886473,1.955626,1.39144,3.1565,1.39144s2.346399-.504967,3.1565-1.39144c.814721-1.030284,1.230495-2.319859,1.171-3.632Z" transform="translate(-560.789-598.259)" fill="#ddfff7"/><path d="M795.356,611.354h-1.9c-1.134536-.095364-2.245919.359529-2.988,1.223-.681709.970695-1.016707,2.142661-.951,3.327v8.554h-3.773c-.26893,0-.526844-.106832-.717006-.296994s-.296994-.448076-.296994-.717006v-16.434h3.325c.589854.00016,1.093342.426286,1.191,1.008l.271,1.607c.466925-.805843,1.133272-1.478044,1.935-1.952.955032-.484257,2.019396-.712359,3.089-.662v0c.449331.000551.813449.364669.814.814v3.53l.001-.001Z" transform="translate(-713.954-599.745)" fill="#ddfff7"/><path d="M892.833,549.552c.018128.724995-.264147,1.425254-.78,1.935-.52061.520521-1.233162.802792-1.969.78-.740502.020756-1.457541-.260861-1.986-.78-.526078-.50437-.816316-1.206384-.8-1.935-.018146-.723995.272776-1.42148.8-1.918.533496-.509419,1.248655-.784175,1.986-.763.732699-.023514,1.443463.251912,1.969.763.51712.501895.800064,1.197647.78,1.918Zm-.373,5.347v16.685h-4.029c-.418241-.000552-.757-.339758-.757-.758v-16.691h4.026c.420773.002203.760557.344222.76.765v-.001Z" transform="translate(-804.212622-546.87)" fill="#ddfff7"/></g></g><g id="e7dPaOJeSgu14_to" transform="translate(-865.887,-553.772)"><path d="M962.327,555.888v12.582l6.857-7.435h4.248c.195329-.000217.372366.114907.451395.293534s.045145.387069-.086395.531466l-5.462,6l6.551,10.625h-4.3c-.769855-.000114-1.485308-.396958-1.893-1.05l-3.757-6.011-2.614,2.817v2.88c0,.36149-.143601.708174-.399213.963787s-.602297.399213-.963787.399213h-3.419v-23.764h3.621c.643831.0022,1.164903.524166,1.166,1.168Z" transform="translate(0,0)" fill="#ddfff7"/></g><path d="M-865.887,-553.772h-72.031" fill="none" stroke="#3f5787" stroke-width="0.5"/></g><g id="e7dPaOJeSgu16_tk" transform="translate(2.525802,-6.892) skewX(0) skewY(0)"><path d="M200.06,554.71l5.756.034c.522184.003413,1.017509.231941,1.359.627l1.761,2.037l1.666-1.982c.347222-.412898.860529-.649386,1.4-.645l5.62.033-3.048,3.622c-.309754.367329-.766508.578307-1.247.576l-9.163-.053c-.494433-.002709-.960454-.231483-1.265-.621l-2.839-3.628Z" transform="scale(0.982743,1) translate(0,0)" fill="#f74d0b"/></g></g></g><g transform="matrix(.071194 0 0 0.071194 96.896971 19.9344)" opacity="0.7"><g transform="matrix(.3 0 0 0.3-18.12243-25.905895)" mask="url(#e7dPaOJeSgu22)"><mask id="e7dPaOJeSgu22" mask-type="alpha" x="-150%" y="-150%" height="400%" width="400%"><g id="e7dPaOJeSgu23_tr" transform="translate(135.33781,207.03926) rotate(720)"><path d="M78.37454,207.03926c0-31.45994,25.50332-56.96327,56.96327-56.96327s56.96327,25.50332,56.96327,56.96327-25.50332,56.96327-56.96327,56.96327-56.96327-25.50332-56.96327-56.96327Zm89.23546-4.715c-.16775-.93858-1.05962-1.56734-2-1.41h-.06c-4.15414.71597-8.30501-1.28258-10.33588-4.97651s-1.49439-8.26953,1.33588-11.39349c.33036-.3301.51598-.77798.51598-1.245s-.18561-.9149-.51598-1.245l-.11-.1c-2.70671-2.31865-5.78705-4.16144-9.11-5.45-.43613-.17299-.92328-.16468-1.35326.02308s-.76719.53944-.93674.97692v.06c-1.40364,3.98681-5.18789,6.63916-9.41438,6.59848s-7.95898-2.76539-9.28562-6.77848c-.13404-.44903-.44162-.82607-.85458-1.04757s-.8972-.26916-1.34542-.13243h-.11c-3.26392,1.21388-6.31249,2.94242-9.03,5.12-.37331.28196-.619.70095-.6828,1.16441s.05956.93325.3428,1.30559l.1.12c2.68294,3.2243,3.03751,7.79124.8844,11.39101s-6.34454,5.44763-10.4544,4.60899c-.45624-.10445-.9353-.02286-1.33126.22672s-.67619.6466-.77874,1.10328v.09c-.55386,3.43784-.55386,6.94217,0,10.38.06433.46505.31181.88512.68739,1.16681s.84815.40164,1.31261.33319h.11c4.15414-.71597,8.30501,1.28258,10.33588,4.97651s1.49439,8.26953-1.33588,11.39349c-.33036.3301-.51598.77798-.51598,1.245s.18561.9149.51598,1.245l.11.1c2.70914,2.30768,5.7893,4.14023,9.11,5.42.43613.17299.92328.16468,1.35326-.02308s.76719-.53944.93674-.97692v-.06c1.40815-3.97311,5.18194-6.61524,9.39704-6.57914s7.94308,2.7425,9.28296,6.73914c.13404.44903.44162.82607.85458,1.04757s.8972.26916,1.34542.13243h.11c3.30375-1.22537,6.38706-2.97809,9.13-5.19.37164-.28659.61343-.70974.67164-1.17542s-.07198-.93533-.36164-1.30458l-.1-.12c-2.83001-3.19588-3.28744-7.84789-1.13412-11.53378s6.43037-5.57199,10.60412-4.67622c.93041.23341,1.87421-.33019,2.11-1.26v-.09c.5347-3.37898.5347-6.82102,0-10.2Zm-41.67,4.69c0-5.197,4.213-9.41,9.41-9.41s9.41,4.213,9.41,9.41-4.213,9.41-9.41,9.41-9.41-4.213-9.41-9.41Z" transform="translate(-135.33781,-207.03926)" fill="#d2dbed" stroke-width="0"/></g></mask></g><g id="e7dPaOJeSgu24_tr" transform="translate(11.12,29.9) rotate(-720)"></g></g>
+                </svg>
+            </a> 
+        </div>
+    </div>
+</section>
+<script>
+    let resultats = {
+    Diesel: 0,
+    Essence: 0,
+    Hybride: 0,
+    HybrideRechargeable: 0,
+    Electrique: 0
+};
+
+const pondérations = {
+    trajet: {
+        "Trajet Urbain": { Diesel: 2, Essence: 8, Hybride: 12, HybrideRechargeable: 12, Electrique: 12 },
+        "Trajet Rural": { Diesel: 10, Essence: 8, Hybride: 8, HybrideRechargeable: 8, Electrique: 12 },
+        "Trajets mixtes": { Diesel: 8, Essence: 10, Hybride: 8, HybrideRechargeable: 12, Electrique: 12 },
+        "Surtout autoroute": { Diesel: 12, Essence: 5, Hybride: 5, HybrideRechargeable: 8, Electrique: 8 }
+    },
+    kilomètres: {
+        "< 20 km": { Diesel: 0, Essence: 6, Hybride: 10, HybrideRechargeable: 10, Electrique: 10 },
+        "Entre 20 et 50 km": { Diesel: 3, Essence: 10, Hybride: 10, HybrideRechargeable: 10, Electrique: 10 },
+        "Entre 50 et 100 km": { Diesel: 5, Essence: 5, Hybride: 8, HybrideRechargeable: 10, Electrique: 10 },
+        "> 100 km": { Diesel: 9, Essence: 1, Hybride: 3, HybrideRechargeable: 7, Electrique: 8 }
+    },
+    kilomètres_annuels: {
+        "< 10 000 km": { Diesel: 0, Essence: 2, Hybride: 2, HybrideRechargeable: 3, Electrique: 8 },
+        "10 000 km - 15 000 km": { Diesel: 2, Essence: 8, Hybride: 8, HybrideRechargeable: 5, Electrique: 8 },
+        "Entre 15 000 km et 20 000 km": { Diesel: 3, Essence: 3, Hybride: 5, HybrideRechargeable: 8, Electrique: 7 },
+        "> 20 000 km": { Diesel: 8, Essence: 0, Hybride: 3, HybrideRechargeable: 7, Electrique: 5 }
+    },
+    longs_trajets: {
+        "Jamais": { Diesel: 0, Essence: 10, Hybride: 10, HybrideRechargeable: 8, Electrique: 10 },
+        "1 à 2 fois par an": { Diesel: 2, Essence: 9, Hybride: 9, HybrideRechargeable: 10, Electrique: 8 },
+        "1 à 2 fois par mois": { Diesel: 7, Essence: 7, Hybride: 7, HybrideRechargeable: 10, Electrique: 7 },
+        "Minimum 1 fois par semaine": { Diesel: 10, Essence: 5, Hybride: 5, HybrideRechargeable: 7, Electrique: 4 }
+    },
+    recharge: {
+        "Uniquement à mon domicile": { Diesel: 8, Essence: 8, Hybride: 8, HybrideRechargeable: 15, Electrique: 15 },
+        "Uniquement au travail / sur le temps de travail": { Diesel: 8, Essence: 8, Hybride: 8, HybrideRechargeable: 15, Electrique: 10 },
+        "À mon domicile et au travail": { Diesel: 0, Essence: 0, Hybride: 0, HybrideRechargeable: 20, Electrique: 20 },
+        "Ni à mon domicile ni au travail": { Diesel: 20, Essence: 20, Hybride: 20, HybrideRechargeable: 8, Electrique: 3 }
+    },
+    budget: {
+        "Coût d’acquisition du véhicule maîtrisé": { Diesel: 8, Essence: 10, Hybride: 8, HybrideRechargeable: 7, Electrique: 6 },
+        "Le coût d'entretien faible": { Diesel: 0, Essence: 5, Hybride: 7, HybrideRechargeable: 10, Electrique: 10 },
+        "Le coût d'utilisation faible": { Diesel: 5, Essence: 5, Hybride: 5, HybrideRechargeable: 9, Electrique: 10 }
+    },
+    immatriculation: {
+        "À mon nom": { Diesel: 10, Essence: 20, Hybride: 30, HybrideRechargeable: 30, Electrique: 30 },
+        "Au nom de ma société": { Diesel: 0, Essence: 0, Hybride: 10, HybrideRechargeable: 25, Electrique: 30 }
+    }
+};
+
+function calculer() {
+    const resultStats = document.querySelector("#resultat-stats");
+    const topMotor = document.querySelector('#top-motor');
+    const reservationLink = document.querySelector('#reservation-link');
+
+    // Réinitialiser les résultats
+    resultats = { Diesel: 0, Essence: 0, Hybride: 0, HybrideRechargeable: 0, Electrique: 0 };
+    textMotor = {
+        Diesel: 'Conçu pour les grands rouleurs, le diesel offre une excellente autonomie et une consommation réduite sur autoroute. 🚛',
+        Essence: 'Profitez d’une conduite souple et réactive, idéale pour les trajets courts et les longs voyages, avec un coût d’entretien maîtrisé. 🚗 ',
+        Hybride: 'Alliant performance et sobriété, l’hybride s’adapte à tous vos trajets avec une consommation optimisée et un confort absolu. 🔋',
+        HybrideRechargeable: 'Bénéficiez du meilleur des deux mondes : une conduite 100 % électrique au quotidien et un moteur thermique pour les longues distances. 🔌',
+        Electrique: 'Silencieux, économique et écologique, le véhicule électrique vous garantit une conduite fluide et sans émission. ⚡',
+    }
+
+    // Parcourir chaque input sélectionné
+    document.querySelectorAll('input[type="radio"]:checked').forEach(input => {
+        const category = input.name;
+        const value = input.value;
+        const selectedPondération = pondérations[category][value];
+
+        // Ajouter les pondérations aux résultats
+        for (let motorisation in selectedPondération) {
+            resultats[motorisation] += selectedPondération[motorisation];
+        }
+    });
+
+    // Nettoyer l'affichage précédent des résultats
+    resultStats.innerHTML = "";
+    topMotor.innerHTML = "";
+
+    // Afficher les résultats
+    let sortedResultats = Object.entries(resultats)
+    .sort((a, b) => b[1] - a[1]);
+
+    console.log(Object.values(sortedResultats)[0][0]);
+
+    let templateMotor = `
+        <h3>${Object.values(sortedResultats)[0][0].replace(/([a-z])([A-Z])/g, '$1 $2')}</h3>
+        <p>${textMotor[Object.values(sortedResultats)[0][0]]}</p>
+    `
+    topMotor.innerHTML += templateMotor;
+
+    // Display sorted results
+    sortedResultats.forEach(([motorisation, score]) => {
+        
+        let template = `
+            <div class="titre-pourcentage">
+                <div class="titret-pourcentage-texte">${motorisation.replace(/([a-z])([A-Z])/g, '$1 $2')}</div>
+                <div class="titret-pourcentage-texte">${score}%</div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:${score}%" aria-valuenow="${score}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        `;
+        resultStats.innerHTML += template;
+    });
+
+    // Mettre à jour le lien de réservation avec les paramètres de l'URL
+    let urlParams = new URLSearchParams();
+    for (let [motorisation, score] of sortedResultats) {
+        urlParams.set(motorisation.toLowerCase(), score);
+    }
+    reservationLink.href = `contact.html?${urlParams.toString()}`;
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
